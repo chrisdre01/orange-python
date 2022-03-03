@@ -1,0 +1,2 @@
+Honda, Pilot, SSSS, 13000, 35000, ['AWD']
+Toyota, Corolla, QQQQQ, 7500, 24000, ['Carplay', 'AC']

@@ -1,12 +1,7 @@
-# For this assignment, you will be creating a used car dealer inventory application. There will be no code file provided for this assignment.
-# Furthermore, you will be building upon this application in the remaining weeks of the course, so it would be a good idea to carefully comment on the different sections of your code as you will be revisiting old code to make modifications and you will thank yourself for leaving comments.
-# To begin, you will need to create a class to represent cars (make, model, VIN, mileage, price, features [ list ]) and create a basic CLI menu to add, edit, remove, display all cars from the list of Car objects. (Hint: Use what you learned from the assigned readings in Lists and Dictionaries.)
-# Once you have completed the Car class and the 4 application functions, add 4 vehicles to the program using the interface and take screenshots to document the:
-# main menu
-# adding a vehicle
-# editing a vehicle
-# deleting a vehicle
-# displaying a formatted list of cars.
+# For this assignment, you will be modifying the used car dealer application from last week. There will be no code file provided for this assignment, you will be working from the previous week’s project files.
+# !!VERSION CONTROL!!: Be sure to make a backup copy of your project folder before you begin work on this assignment.
+# This week, you will be modifying your application to add two new menu items: Save Data, Load Data. The Save Data option will write the current vehicle data to a text file, overwriting any existing data. Load data will open the specified text file and read in the vehicle data into memory.
+# Once you have the desired functionality, you will take screenshots of your program executing and the contents of your text file in order to demonstrate your program is able to save and load data to and from the text file. Paste your screenshots into a Word doc along with your completed code.
 
 
 class Car:
@@ -57,7 +52,9 @@ def main():
     print("2. Edit a car")
     print("3. Delete a car")
     print("4. Display inventory")
-    print("5. Exit")
+    print("5. Save inventory data")
+    print("6. Load inventory data")
+    print("7. Exit")
 
     input_option = int(input("Please select an option: "))
     if input_option == 1:
@@ -115,15 +112,37 @@ def main():
         continue_program()
 
     elif input_option == 5:
+        textfile = open("inventory.txt", "w")
+        for car in Car.inventory:
+            textfile.write(
+                f"{car.make}, {car.model}, {car.vin}, {car.mileage}, {car.price}, {car.features}\n"
+            )
+        textfile.close()
+        print("\nInventory data saved.")
+        continue_program()
+
+    elif input_option == 6:
+        textfile = open("inventory.txt", "r")
+        for line in textfile:
+            line = line.strip()
+            make, model, vin, mileage, price, features = line.split(", ")
+            new_car = Car(make, model, vin, mileage, price, features)
+            new_car.add_car()
+        textfile.close()
+        print("\nInventory data loaded:")
+        Car.display_inventory()
+        continue_program()
+
+    elif input_option == 7:
         print("Exiting...")
 
 
 def continue_program():
-    continue_option = input("\nWould you like to continue? (y/n) ")
-    if continue_option == "y":
-        main()
-    else:
+    continue_option = input("\nPress any key to continue or 'q' to quit: ")
+    if continue_option == "q":
         print("Exiting...")
+    else:
+        main()
 
 
 main()
