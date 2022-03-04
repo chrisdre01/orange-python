@@ -124,13 +124,17 @@ def main():
     elif input_option == 6:
         textfile = open("inventory.txt", "r")
         for line in textfile:
-            line = line.strip()
-            make, model, vin, mileage, price, features = line.split(", ")
+            line = line.strip().split(", ")
+            make = line[0]
+            model = line[1]
+            vin = line[2]
+            mileage = line[3]
+            price = line[4]
+            features = line[5:]
             new_car = Car(make, model, vin, mileage, price, features)
             new_car.add_car()
         textfile.close()
-        print("\nInventory data loaded:")
-        Car.display_inventory()
+        print("\nInventory data loaded.")
         continue_program()
 
     elif input_option == 7:
