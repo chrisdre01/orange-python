@@ -1,9 +1,3 @@
-# For this assignment, you will be modifying the used car dealer application from last week. There will be no code file provided for this assignment, you will be working from the previous week’s project files.
-# !!VERSION CONTROL!!: Be sure to make a backup copy of your project folder before you begin work on this assignment.
-# This week, you will be modifying your application to add two new menu items: Save Data, Load Data. The Save Data option will write the current vehicle data to a text file, overwriting any existing data. Load data will open the specified text file and read in the vehicle data into memory.
-# Once you have the desired functionality, you will take screenshots of your program executing and the contents of your text file in order to demonstrate your program is able to save and load data to and from the text file. Paste your screenshots into a Word doc along with your completed code.
-
-
 class Car:
     inventory = []
 
