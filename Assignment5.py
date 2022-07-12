@@ -1,10 +1,10 @@
 ######################################################################
 # Script Name: Assignment5.py
 # Title: Assignment 5 Code File
-# Description: Code file for SCP220 Week 5 Assignment. Re-write into
-# IDE of your choice.
-# Author: Nathan Braun [student, update with your name.]
-# Date:  April 3, 2020 [student, update with current date.]
+# Description: SCP220 Week 5 Assignment. 
+# IDE of your choice: PyCharm
+# Author: Andre Johnson
+# Date: February 18, 2022
 ######################################################################
 standard1 = [12.25, 18.0, 27.125]
 metric1 = []
